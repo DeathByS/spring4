@@ -19,5 +19,17 @@
 	                        
 	    <bean id = "changePwdSvc" class = "spring.ChangePasswordService">
 	    	<constructor-arg ref = "memberDao" /> 
-	    </bean>                    	                        	                        	                        	                        	                        	                        	                        	                        	                        
+	    </bean>     
+	    
+	    <bean id = "listPrinter" class = "spring.MemberListPrinter"> 
+		    
+		<!-- 2개이상의 constructor-arg 생성자를 이용하여 의존객체를 주입할때  -->   
+	    	<constructor-arg ref = "memberDao" />
+	    	<constructor-arg ref = "memberPrinter" /> 
+	    </bean>  
+	    
+	    <bean id = "memberPrinter" class = "spring.MemberPrinter">
+	    </bean>         
+	    
+	                    	                        	                        	                        	                        	                        	                        	                        	                        	                        
 </beans>	
