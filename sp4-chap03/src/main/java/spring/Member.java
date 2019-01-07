@@ -23,7 +23,7 @@ public class Member {
 		this.id = id;
 	}
 
-	public Long getId(Long id)
+	public Long getId()
 	{
 		return id;
 	}
