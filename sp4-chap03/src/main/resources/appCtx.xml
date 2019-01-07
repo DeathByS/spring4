@@ -5,10 +5,15 @@
 	   xsi:schemaLocation = "http://www.springframework.org/schema/beans
 	                        http://www.springframework.org/schema/beans/spring-beans.xsd">
 	                        
+	
+			
+		<!-- bean 태그 class 타입의 빈 객체를 생성하고 id 이름으로 보관-->
 		<bean id = "memberDao" class = "spring.MemberDao">
 		</bean>
 			                        
-	    <bean id = "memberRegSvc" class = "spring.MemberRegisterService">
+	    <bean id = "memberRegSvc" class = "spring.MemberRegisterService"> 
+		    
+		<!-- constructor-arg 생성자를 이용하여 의존객체를 주입할때  -->   
 	    	<constructor-arg ref = "memberDao" /> 
 	    </bean>                    
 	                        
