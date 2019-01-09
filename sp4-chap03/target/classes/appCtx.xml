@@ -31,5 +31,11 @@
 	    <bean id = "memberPrinter" class = "spring.MemberPrinter">
 	    </bean>         
 	    
+	    <!-- 설정 매서드 방식으로 의존주입 -->
+	    <bean id = "infoPrinter" class = "spring.MemberInfoPrinter">
+	    	<property name="memberDao" ref="memberDao" />
+	    	<property name="printer" ref="memberPrinter" /> 
+	    </bean>
+	    
 	                    	                        	                        	                        	                        	                        	                        	                        	                        	                        
 </beans>	

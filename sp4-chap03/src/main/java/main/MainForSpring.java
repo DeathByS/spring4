@@ -10,6 +10,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 import spring.AlreadyExistingMemberException;
 import spring.ChangePasswordService;
 import spring.IdPasswordNotMatchingException;
+import spring.MemberInfoPrinter;
 import spring.MemberListPrinter;
 import spring.MemberNotFoundException;
 import spring.MemberRegisterService;
@@ -50,6 +51,13 @@ public class MainForSpring {
 				processListCommand();
 				continue;
 			}
+			
+			else if(command.startsWith("info "))
+			{
+				processInfoCommand(command.split(" "));
+				continue;
+			}
+			
 			printHelp();
 		}
 	}
@@ -110,6 +118,18 @@ public class MainForSpring {
 		{
 			System.out.println("이메일과 암호가 일치하지 않습니다. \n");
 		}
+		
+	}
+	
+	private static void processInfoCommand(String[] arg)
+	{
+		if(arg.length != 2)
+		{
+			printHelp();
+			return;
+		}
+		MemberInfoPrinter infoPrinter = ctx.getBean("infoPrinter", MemberInfoPrinter.class);
+		infoPrinter.printMemberInfo(arg[1]);
 		
 	}
 	
